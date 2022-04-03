@@ -15,6 +15,8 @@ int main() {
 	float debito;
 	float credito;
 	float bitCoin;
+	float unitario;
+	float diferencia;
 
 	printf("Ingrese la cantidad de kilometros: ");
 	scanf("%d", &kilometros);
@@ -46,23 +48,31 @@ int main() {
 
 	printf("kilometros ingresada: %d  km\n", kilometros);
 
-	printf("Latam :$ %.2f\n", precioVuelosLatam);
 	debito=precioTarjetaDebito(precioVuelosLatam);
-	printf("A)Precio con tarjeta de debito: $  %.2f\n", debito);
 	credito=precioTarjetaCredito(precioVuelosLatam);
-	printf("B)Precio con tarjeta de credito: $  %.2f\n", credito);
 	bitCoin=precioBitCoin(precioVuelosLatam);
-	printf("C)Precio pagado con BitCoin: %.5f    BTC\n", bitCoin);
-	//printf()
-	printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
-	debito=precioTarjetaDebito(precioVuelosAerolineas);
+	unitario=precioUnitario(precioVuelosLatam, kilometros);
+
+	printf("Latam :$ %.2f\n", precioVuelosLatam);
 	printf("A)Precio con tarjeta de debito: $  %.2f\n", debito);
-	credito=precioTarjetaCredito(precioVuelosAerolineas);
 	printf("B)Precio con tarjeta de credito: $  %.2f\n", credito);
+	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoin);
+	printf("D)Precio Unitario: $ %.2f\n", unitario);
+
+	debito=precioTarjetaDebito(precioVuelosAerolineas);
+	credito=precioTarjetaCredito(precioVuelosAerolineas);
 	bitCoin=precioBitCoin(precioVuelosAerolineas);
-	printf("C)Precio pagado con BitCoin: %.5f    BTC\n", bitCoin);
-	//printf()
-	//printf()
+	unitario=precioUnitario(precioVuelosAerolineas, kilometros);
+
+	printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
+	printf("A)Precio con tarjeta de debito: $  %.2f\n", debito);
+	printf("B)Precio con tarjeta de credito: $  %.2f\n", credito);
+	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoin);
+	printf("D)Precio Unitario: $ %.2f\n", unitario);
+
+	diferencia=diferenciaPrecios(precioVuelosLatam, precioVuelosAerolineas);
+
+	printf("La diferencia de precio es de : $ %.2f\n", diferencia);
 
 
 
