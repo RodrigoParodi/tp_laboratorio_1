@@ -1,6 +1,12 @@
-//Trabajo Practico 1
-//Parodi Rodrigo
-//Programacion 1
+/*
+ ============================================================================
+ Name        : TP_1
+ Author      : Rodrigo Parodi Div 1G
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -78,6 +84,10 @@ int main() {
 
 	return 0;
 }
+
+
+
+
 
 
 
