@@ -22,6 +22,7 @@ int main(){
 	int kilometros;
 	int banderaKilometros = 0;
 	int banderaPrecios = 0;
+	int banderaCalculos = 0;
 	char ingresarPrecio;
 	float precioVuelosLatam = 0;
 	float precioVuelosAerolineas = 0;
@@ -116,6 +117,7 @@ int main(){
 
 				diferencia=diferenciaPrecios(precioVuelosLatam, precioVuelosAerolineas);
 
+				banderaCalculos = 1;
 				printf("Los datos han sido calculados con exito!!!\n\n");
 			}
 			else
@@ -126,6 +128,8 @@ int main(){
 
 		break;
 		case 4:
+			if(banderaPrecios ==1 && banderaKilometros == 1 && banderaCalculos == 1)
+			{
 				printf("Estos son los resultados:\n\n");
 
 				printf("Kilometros Ingresados: %d  KM\n\n", kilometros);
@@ -150,6 +154,12 @@ int main(){
 				}
 
 				printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);
+			}
+			else
+			{
+				printf("Error antes de mostrar resultados ingrese los precios y KMs!!!\n");
+				printf("Tampoco se olvide de seleccionar la opcion 3 antes de pedir los resultados!!!\n\n");
+			}
 				system("pause");
 		break;
 		case 5:
@@ -168,6 +178,9 @@ int main(){
 			unitario=precioUnitario(162965, kilometros);
 
 			diferencia=diferenciaPrecios(162965, 159339);
+
+			banderaKilometros=1;
+			banderaPrecios=1;
 
 			printf("Los datos fueron cargados con exito!!!\n\n");
 			system("pause");
