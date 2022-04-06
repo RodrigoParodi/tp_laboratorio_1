@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 void resuladosLatam(float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam){
 
@@ -41,8 +42,45 @@ void mensajeDifPrecios(float precioVuelosLatam , float precioVuelosAerolineas , 
 		printf("Solo se ingreso un precio por lo cual no se calculara la diferencia!!!\n\n");
 	}
 
+}
+
+char seleccionarAerolineaa(char ingresarPrecio){
+
+	printf("Eliga que empresa de vuelo quiere.\n");
+	printf("A)Aerolineas.\n");
+	printf("B)Latam.\n\n");
+
+	printf("Elija una opcion : ");
+	fflush(stdin);
+	scanf("%c", &ingresarPrecio);
+	ingresarPrecio = tolower(ingresarPrecio);
+
+	return ingresarPrecio;
+}
+
+float precioUno(float precioVuelosAerolineas){
+
+	printf("Ingrese El precio de Aerolineas : ");
+	scanf("%f", &precioVuelosAerolineas);
+	while(precioVuelosAerolineas < 0)
+	{
+		printf("ERROR , Reingrese el precio (Mayor a 0) : ");
+		scanf("%f", &precioVuelosAerolineas);
+	}
 
 
+	return precioVuelosAerolineas;
+}
 
+float precioDos(float precioVuelosLatam){
 
+	printf("Ingrese El precio de Latam : ");
+	scanf("%f", &precioVuelosLatam);
+	while(precioVuelosLatam < 0)
+	{
+		printf("ERROR , Reingrese el precio (Mayor a 0) : ");
+		scanf("%f", &precioVuelosLatam);
+	}
+
+	return precioVuelosLatam;
 }

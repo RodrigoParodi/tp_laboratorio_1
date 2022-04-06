@@ -68,35 +68,16 @@ int main(){
 		case 2:
 			if(banderaKilometros == 1)
 			{
-				printf("Eliga que empresa de vuelo quiere.\n");
-				printf("A)Aerolineas.\n");
-				printf("B)Latam.\n\n");
-
-				printf("Elija una opcion : ");
-				fflush(stdin);
-				scanf("%c", &ingresarPrecio);
-				ingresarPrecio = tolower(ingresarPrecio);
+				ingresarPrecio=seleccionarAerolineaa(ingresarPrecio);
 				banderaPrecios = 1;
 
 				switch(ingresarPrecio)
 				{
 				case 'a':
-					printf("Ingrese El precio de Aerolineas : ");
-					scanf("%f", &precioVuelosAerolineas);
-					while(precioVuelosAerolineas < 0)
-					{
-						printf("ERROR , Reingrese el precio (Mayor a 0) : ");
-						scanf("%f", &precioVuelosAerolineas);
-					}
+					precioVuelosAerolineas=precioUno(precioVuelosAerolineas);
 				break;
 				case 'b':
-					printf("Ingrese El precio de Latam : ");
-					scanf("%f", &precioVuelosLatam);
-					while(precioVuelosLatam < 0)
-					{
-						printf("ERROR , Reingrese el precio (Mayor a 0) : ");
-						scanf("%f", &precioVuelosLatam);
-					}
+					precioVuelosLatam=precioDos(precioVuelosLatam);
 				break;
 				}
 			}
@@ -196,7 +177,6 @@ int main(){
 
 	return 0;
 }
-
 
 
 
