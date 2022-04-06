@@ -26,10 +26,14 @@ int main(){
 	char ingresarPrecio;
 	float precioVuelosLatam = 0;
 	float precioVuelosAerolineas = 0;
-	float debito;
-	float credito;
-	float bitCoin;
-	float unitario;
+	float debitoLatam;
+	float creditoLatam;
+	float bitCoinLatam;
+	float unitarioLatam;
+	float debitoAero;
+	float creditoAero;
+	float bitCoinAero;
+	float unitarioAero;
 	float diferencia;
 
 	printf("Hola bienvenido!!!\n\n");
@@ -105,15 +109,15 @@ int main(){
 		case 3:
 			if(banderaPrecios ==1 && banderaKilometros == 1)
 			{
-				debito=precioTarjetaDebito(precioVuelosLatam);
-				credito=precioTarjetaCredito(precioVuelosLatam);
-				bitCoin=precioBitCoin(precioVuelosLatam);
-				unitario=precioUnitario(precioVuelosLatam, kilometros);
+				debitoLatam=precioTarjetaDebito(precioVuelosLatam);
+				creditoLatam=precioTarjetaCredito(precioVuelosLatam);
+				bitCoinLatam=precioBitCoin(precioVuelosLatam);
+				unitarioLatam=precioUnitario(precioVuelosLatam, kilometros);
 
-				debito=precioTarjetaDebito(precioVuelosAerolineas);
-				credito=precioTarjetaCredito(precioVuelosAerolineas);
-				bitCoin=precioBitCoin(precioVuelosAerolineas);
-				unitario=precioUnitario(precioVuelosAerolineas, kilometros);
+				debitoAero=precioTarjetaDebito(precioVuelosAerolineas);
+				creditoAero=precioTarjetaCredito(precioVuelosAerolineas);
+				bitCoinAero=precioBitCoin(precioVuelosAerolineas);
+				unitarioAero=precioUnitario(precioVuelosAerolineas, kilometros);
 
 				diferencia=diferenciaPrecios(precioVuelosLatam, precioVuelosAerolineas);
 
@@ -136,24 +140,15 @@ int main(){
 
 				if(precioVuelosLatam > 0)
 				{
-					printf("Latam :$ %.2f\n", precioVuelosLatam);
-					printf("A)Precio con tarjeta de debito: $  %.2f\n", debito);
-					printf("B)Precio con tarjeta de credito: $  %.2f\n", credito);
-					printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoin);
-					printf("D)Precio Unitario: $ %.2f\n", unitario);
+					resuladosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
 				}
 
 				if(precioVuelosAerolineas > 0)
 				{
-					printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
-					printf("A)Precio con tarjeta de debito: $  %.2f\n", debito);
-					printf("B)Precio con tarjeta de credito: $  %.2f\n", credito);
-					printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoin);
-					printf("D)Precio Unitario: $ %.2f\n", unitario);
-
+					resuladosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
 				}
 
-				printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);
+				mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
 			}
 			else
 			{
@@ -166,23 +161,27 @@ int main(){
 			kilometros = 7090;
 
 			precioVuelosLatam=159339;
-			debito=precioTarjetaDebito(159339);
-			credito=precioTarjetaCredito(159339);
-			bitCoin=precioBitCoin(159339);
-			unitario=precioUnitario(159339, kilometros);
+			debitoLatam=precioTarjetaDebito(159339);
+			creditoLatam=precioTarjetaCredito(159339);
+			bitCoinLatam=precioBitCoin(159339);
+			unitarioLatam=precioUnitario(159339, kilometros);
 
 			precioVuelosAerolineas=162965;
-			debito=precioTarjetaDebito(162965);
-			credito=precioTarjetaCredito(162965);
-			bitCoin=precioBitCoin(162965);
-			unitario=precioUnitario(162965, kilometros);
+			debitoAero=precioTarjetaDebito(162965);
+			creditoAero=precioTarjetaCredito(162965);
+			bitCoinAero=precioBitCoin(162965);
+			unitarioAero=precioUnitario(162965, kilometros);
 
 			diferencia=diferenciaPrecios(162965, 159339);
 
-			banderaKilometros=1;
-			banderaPrecios=1;
-
 			printf("Los datos fueron cargados con exito!!!\n\n");
+			printf("Estos son los resultados:\n\n");
+
+			printf("Kilometros Ingresados: %d  KM\n\n", kilometros);
+			resuladosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
+			resuladosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
+			mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
+
 			system("pause");
 		break;
 		}
