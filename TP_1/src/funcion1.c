@@ -5,6 +5,9 @@
  *      Author: Rodrigo
  */
 
+//FUNCIONES MATEMATICAS.
+//AQUI SE REALIZAN TODOS LOS CALCULOS DE LOS PRECIOS.
+
 #include <stdio.h>
 #include <stdlib.h>
 

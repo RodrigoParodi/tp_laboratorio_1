@@ -10,7 +10,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
+#include <ctype.h>                                //Bibliotecas usadas
 #include "funciones.h"
 #include "menu.h"
 
@@ -18,14 +18,14 @@
 int main(){
 	setbuf(stdout, NULL);
 
-	int opciones;
 	int kilometros;
 	int banderaKilometros = 0;
 	int banderaPrecios = 0;
 	int banderaCalculos = 0;
 	char ingresarPrecio;
+	char respuesta ='n';
 	float precioVuelosLatam = 0;
-	float precioVuelosAerolineas = 0;
+	float precioVuelosAerolineas = 0;                        //Variables usadas
 	float debitoLatam;
 	float creditoLatam;
 	float bitCoinLatam;
@@ -39,24 +39,13 @@ int main(){
 	printf("Hola bienvenido!!!\n\n");
 
 	do{
-		printf("\n\n MENU DE OPCIONES.\n\n");
-		printf("1)Ingresar Kilometros.\n");
-		printf("2)Ingresar Precio de vuelos.\n");
-		printf("3)Calcular todos los costos.\n");
-		printf("4)Mostrar resultados.\n");
-		printf("5)Carga forzada de datos.\n");
-		printf("6)Salir.\n\n");
-
-		printf("Eliga que opcion desea iniciar : ");
-		scanf("%d", &opciones);
-
-		switch(opciones)
+		switch(menuPrincipal())  //menu principal
 		{
 		case 1:
 			printf("Ingrese la cantidad de kilometros : ");
 			scanf("%d", &kilometros);
 
-			while(kilometros < 0)
+			while(kilometros < 0)										//Escribir Cantidad de Kilometros
 			{
 				printf("ERROR, Reingrese la cantidad de kilometros : ");
 				scanf("%d", &kilometros);
@@ -74,10 +63,14 @@ int main(){
 				switch(ingresarPrecio)
 				{
 				case 'a':
-					precioVuelosAerolineas=precioUno(precioVuelosAerolineas);
+					precioVuelosAerolineas=precioUno(precioVuelosAerolineas);		//Elegir compania y escribir el precio del vuelo
+				break;																//SI SE PONE UN NUMERO O OTRA LETRA QUE NO ESTA
+				case 'b':															//EN EL SWICH SE REPRODUCE MENSAJE  DE ERROR Y
+					precioVuelosLatam=precioDos(precioVuelosLatam);                 //REGRESA AL MENU.
 				break;
-				case 'b':
-					precioVuelosLatam=precioDos(precioVuelosLatam);
+				default:
+					printf("Operacion invalida!!!\n\n");
+					system("pause");
 				break;
 				}
 			}
@@ -95,7 +88,7 @@ int main(){
 				bitCoinLatam=precioBitCoin(precioVuelosLatam);
 				unitarioLatam=precioUnitario(precioVuelosLatam, kilometros);
 
-				debitoAero=precioTarjetaDebito(precioVuelosAerolineas);
+				debitoAero=precioTarjetaDebito(precioVuelosAerolineas);           //Calcular todos los datos atravez de funciones
 				creditoAero=precioTarjetaCredito(precioVuelosAerolineas);
 				bitCoinAero=precioBitCoin(precioVuelosAerolineas);
 				unitarioAero=precioUnitario(precioVuelosAerolineas, kilometros);
@@ -113,13 +106,13 @@ int main(){
 
 		break;
 		case 4:
-			if(banderaPrecios ==1 && banderaKilometros == 1 && banderaCalculos == 1)
+			if(banderaPrecios ==1 && banderaKilometros == 1 && banderaCalculos == 1)	//MOSTAR RESULTADOS
 			{
 				printf("Estos son los resultados:\n\n");
 
-				printf("Kilometros Ingresados: %d  KM\n\n", kilometros);
-
-				if(precioVuelosLatam > 0)
+				printf("Kilometros Ingresados: %d  KM\n\n", kilometros);	//EN CASO DE QUE NO SE REGISTREN AMBOS VUELOS
+																			//SOLO SE MOSTRARA EL RESULTADO DE 1 Y NO SE REALIZARA
+				if(precioVuelosLatam > 0)									//LA DIFERENCIA DE PRECIOS
 				{
 					resuladosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
 				}
@@ -149,7 +142,7 @@ int main(){
 
 			precioVuelosAerolineas=162965;
 			debitoAero=precioTarjetaDebito(162965);
-			creditoAero=precioTarjetaCredito(162965);
+			creditoAero=precioTarjetaCredito(162965);		//CARGA FORZADA DE DATOS , DIRECTAMENTE MUESTRA LOS RESULTADOS
 			bitCoinAero=precioBitCoin(162965);
 			unitarioAero=precioUnitario(162965, kilometros);
 
@@ -165,18 +158,24 @@ int main(){
 
 			system("pause");
 		break;
+		case 6:
+			printf("Desea salir ?('s' o 'n'): ");
+			fflush(stdin);						//PREGUNTAR PARA SALIR DEL MENU O NO
+			scanf("%c", &respuesta);
+			respuesta = tolower(respuesta);
+		break;
+		default:
+			printf("Opcionon Invalida!!!!\n");
+			system("pause");							//EN CASO DE USAR UN NUMERO MAYOR DE 6 O LETRA SALDRA ESTE MENSAJE DE ERROR
+		break;
 		}
 
-	}while(opciones !=6 );
-
-
-
-
+	}while(respuesta !='s');
 
 	printf("\n Adios que tenga un buen viaje!!!");
 
 	return 0;
-}
+}//FIN DEL PROGRAMA.
 
 
 

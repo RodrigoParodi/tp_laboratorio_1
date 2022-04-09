@@ -5,6 +5,8 @@
  *      Author: Rodrigo
  */
 
+//FUNCIONES DEL MUNO.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -83,4 +85,24 @@ float precioDos(float precioVuelosLatam){
 	}
 
 	return precioVuelosLatam;
+}
+
+int menuPrincipal(){
+
+	int opciones;
+
+	printf("\n\n MENU DE OPCIONES.\n\n");
+	printf("1)Ingresar Kilometros.\n");
+	printf("2)Ingresar Precio de vuelos.\n");
+	printf("3)Calcular todos los costos.\n");
+	printf("4)Mostrar resultados.\n");
+	printf("5)Carga forzada de datos.\n");
+	printf("6)Salir.\n\n");
+
+	printf("Eliga que opcion desea iniciar : ");
+	fflush(stdin);
+	scanf("%d", &opciones);
+
+	return opciones;
+
 }

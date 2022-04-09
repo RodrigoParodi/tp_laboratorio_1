@@ -5,6 +5,8 @@
  *      Author: Rodrigo
  */
 
+//FIRMAS FUNCIONES MATEMATICAS.
+
 #ifndef FUNCIONES_H_
 #define FUNCIONES_H_
 
