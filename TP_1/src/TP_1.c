@@ -114,12 +114,12 @@ int main(){
 																			//SOLO SE MOSTRARA EL RESULTADO DE 1 Y NO SE REALIZARA
 				if(precioVuelosLatam > 0)									//LA DIFERENCIA DE PRECIOS
 				{
-					resuladosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
+					resultadosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
 				}
 
 				if(precioVuelosAerolineas > 0)
 				{
-					resuladosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
+					resultadosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
 				}
 
 				mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
@@ -152,8 +152,8 @@ int main(){
 			printf("Estos son los resultados:\n\n");
 
 			printf("Kilometros Ingresados: %d  KM\n\n", kilometros);
-			resuladosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
-			resuladosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
+			resultadosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
+			resultadosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);;
 			mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
 
 			system("pause");

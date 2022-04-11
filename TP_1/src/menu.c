@@ -11,22 +11,22 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-void resuladosLatam(float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam){
+void resultadosLatam(float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam){
 
 	printf("Latam :$ %.2f\n", precioVuelosLatam);
 	printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoLatam);
-	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoLatam);
+	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoLatam);				//Menu resultados Latam
 	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinLatam);
 	printf("D)Precio Unitario: $ %.2f\n", unitarioLatam);
 
 
 }
 
-void resuladosAerolineas(float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero){
+void resultadosAerolineas(float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero){
 
 	printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
 	printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoAero);
-	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoAero);
+	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoAero);				//menu resultados aerolineas
 	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinAero);
 	printf("D)Precio Unitario: $ %.2f\n", unitarioAero);
 
@@ -37,7 +37,7 @@ void mensajeDifPrecios(float precioVuelosLatam , float precioVuelosAerolineas , 
 
 	if(precioVuelosLatam > 0 && precioVuelosAerolineas > 0)
 	{
-		printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);
+		printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);				//Mnesaje de precios
 	}
 	else
 	{
@@ -52,7 +52,7 @@ char seleccionarAerolineaa(char ingresarPrecio){
 	printf("A)Aerolineas.\n");
 	printf("B)Latam.\n\n");
 
-	printf("Elija una opcion : ");
+	printf("Elija una opcion : ");						//seleccionar aerolinea
 	fflush(stdin);
 	scanf("%c", &ingresarPrecio);
 	ingresarPrecio = tolower(ingresarPrecio);
@@ -66,7 +66,7 @@ float precioUno(float precioVuelosAerolineas){
 	scanf("%f", &precioVuelosAerolineas);
 	while(precioVuelosAerolineas < 0)
 	{
-		printf("ERROR , Reingrese el precio (Mayor a 0) : ");
+		printf("ERROR , Reingrese el precio (Mayor a 0) : ");			//ingresar precio de aerolineas
 		scanf("%f", &precioVuelosAerolineas);
 	}
 
@@ -80,7 +80,7 @@ float precioDos(float precioVuelosLatam){
 	scanf("%f", &precioVuelosLatam);
 	while(precioVuelosLatam < 0)
 	{
-		printf("ERROR , Reingrese el precio (Mayor a 0) : ");
+		printf("ERROR , Reingrese el precio (Mayor a 0) : ");				//ingresar precio de latam
 		scanf("%f", &precioVuelosLatam);
 	}
 
@@ -94,7 +94,7 @@ int menuPrincipal(){
 	printf("\n\n MENU DE OPCIONES.\n\n");
 	printf("1)Ingresar Kilometros.\n");
 	printf("2)Ingresar Precio de vuelos.\n");
-	printf("3)Calcular todos los costos.\n");
+	printf("3)Calcular todos los costos.\n");					//menu principal.
 	printf("4)Mostrar resultados.\n");
 	printf("5)Carga forzada de datos.\n");
 	printf("6)Salir.\n\n");
