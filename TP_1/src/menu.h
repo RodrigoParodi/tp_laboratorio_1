@@ -10,6 +10,7 @@
 
 //FIRMAS DEL MENU.
 
+int ingresarKilometros();
 void resultadosLatam(float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam);
 void resultadosAerolineas(float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero);
 void mensajeDifPrecios(float precioVuelosLatam , float precioVuelosAerolineas , float diferencia);
@@ -17,5 +18,6 @@ char seleccionarAerolineaa(char ingresarPrecio);
 float precioUno(float precioVuelosAerolineas);
 float precioDos(float precioVuelosLatam);
 int menuPrincipal();
+char preguntaSalirDelMenu();
 
 #endif /* MENU_H_ */
