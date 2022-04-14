@@ -52,8 +52,8 @@ int main(){
 		case 2:
 			if(banderaKilometros == 1)
 			{
-				precioVuelosAerolineas=precioUno(precioVuelosAerolineas);		//pedir que ingrese ambos precios.
-				precioVuelosLatam=precioDos(precioVuelosLatam);
+				precioVuelosAerolineas=precioUno();		//pedir que ingrese ambos precios.
+				precioVuelosLatam=precioDos();
 				banderaPrecios = 1;
 			}
 			else
@@ -107,18 +107,18 @@ int main(){
 			kilometros = 7090;
 
 			precioVuelosLatam=159339;
-			debitoLatam=precioTarjetaDebito(159339);
-			creditoLatam=precioTarjetaCredito(159339);
-			bitCoinLatam=precioBitCoin(159339);
-			unitarioLatam=precioUnitario(159339, kilometros);
+			debitoLatam=precioTarjetaDebito(precioVuelosLatam);
+			creditoLatam=precioTarjetaCredito(precioVuelosLatam);
+			bitCoinLatam=precioBitCoin(precioVuelosLatam);
+			unitarioLatam=precioUnitario(precioVuelosLatam, kilometros);
 
 			precioVuelosAerolineas=162965;
-			debitoAero=precioTarjetaDebito(162965);
-			creditoAero=precioTarjetaCredito(162965);		//CARGA FORZADA DE DATOS , DIRECTAMENTE MUESTRA LOS RESULTADOS
-			bitCoinAero=precioBitCoin(162965);
-			unitarioAero=precioUnitario(162965, kilometros);
+			debitoAero=precioTarjetaDebito(precioVuelosAerolineas);
+			creditoAero=precioTarjetaCredito(precioVuelosAerolineas);		//CARGA FORZADA DE DATOS , DIRECTAMENTE MUESTRA LOS RESULTADOS
+			bitCoinAero=precioBitCoin(precioVuelosAerolineas);
+			unitarioAero=precioUnitario(precioVuelosAerolineas, kilometros);
 
-			diferencia=diferenciaPrecios(162965, 159339);
+			diferencia=diferenciaPrecios(precioVuelosAerolineas, precioVuelosLatam);
 
 			printf("La carga forzada de datos fue realizada con exito!!!\n\n");
 			printf("Estos son los resultados:\n\n");

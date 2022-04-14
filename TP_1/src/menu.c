@@ -14,14 +14,16 @@
 int ingresarKilometros(){
 
 	int kilometros;
+	int cont;
 
 	printf("Ingrese la cantidad de kilometros : ");
-	scanf("%d", &kilometros);
+	cont = scanf("%d", &kilometros);
 
-	while(kilometros < 0)										//Funcion para pedir que ingrese cantidad de kilometros
+	while(kilometros < 0 || cont == 0 )										//Funcion para pedir que ingrese cantidad de kilometros
 	{
+		fflush(stdin);
 		printf("ERROR, Reingrese la cantidad de kilometros : ");
-		scanf("%d", &kilometros);
+		cont = scanf("%d", &kilometros);
 	}
 
 	return kilometros;
@@ -49,29 +51,39 @@ void resultados(int kilometros, float precioVuelosLatam, float debitoLatam, floa
 
 }
 
-float precioUno(float precioVuelosAerolineas){
+float precioUno(){
+
+	float precioVuelosAerolineas;
+	int cant;
 
 	printf("Ingrese El precio de Aerolineas : ");
-	scanf("%f", &precioVuelosAerolineas);
-	while(precioVuelosAerolineas < 0)
+	cant = scanf("%f", &precioVuelosAerolineas);
+
+	while(precioVuelosAerolineas < 0 || cant == 0)
 	{
+		fflush(stdin);
 		printf("ERROR , Reingrese el precio (Mayor a 0) : ");			//ingresar precio de aerolineas
-		scanf("%f", &precioVuelosAerolineas);
+		cant = scanf("%f", &precioVuelosAerolineas);
 	}
 
 
 	return precioVuelosAerolineas;
 }
 
-float precioDos(float precioVuelosLatam){
+float precioDos(){
+
+	float precioVuelosLatam;
+	int cant;
 
 	printf("Ingrese El precio de Latam : ");
 	fflush(stdin);
-	scanf("%f", &precioVuelosLatam);
-	while(precioVuelosLatam < 0)
+	cant = scanf("%f", &precioVuelosLatam);
+
+	while(precioVuelosLatam < 0 || cant == 0)
 	{
+		fflush(stdin);
 		printf("ERROR , Reingrese el precio (Mayor a 0) : ");				//ingresar precio de latam
-		scanf("%f", &precioVuelosLatam);
+		cant = scanf("%f", &precioVuelosLatam);
 	}
 
 	return precioVuelosLatam;

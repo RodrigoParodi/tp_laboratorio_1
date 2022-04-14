@@ -14,8 +14,8 @@ int ingresarKilometros();
 void resultados(int kilometros, float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam,
 				float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero,
 				float diferencia);
-float precioUno(float precioVuelosAerolineas);
-float precioDos(float precioVuelosLatam);
+float precioUno();
+float precioDos();
 int menuPrincipal();
 char preguntaSalirDelMenu();
 
