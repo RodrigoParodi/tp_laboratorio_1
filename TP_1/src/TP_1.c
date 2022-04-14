@@ -36,8 +36,10 @@ int main(){
 	float diferencia;
 
 	printf("Hola bienvenido!!!\n\n");
+	system("pause");
 
 	do{
+		system("cls");
 		switch(menuPrincipal())  //menu principal
 		{
 		case 1:
