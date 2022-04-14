@@ -89,14 +89,14 @@ float precioDos(){
 	return precioVuelosLatam;
 }
 
-int menuPrincipal(){
+int menuPrincipal(int operador1, float operador2, float operador3){
 
 	int opciones;
 
 	printf("\n\n MENU DE OPCIONES.\n\n");
-	printf("1)Ingresar Kilometros.\n");
-	printf("2)Ingresar Precio de vuelos.\n");
-	printf("3)Calcular todos los costos.\n");					//menu principal.
+	printf("1)Ingresar Kilometros. (Km = %d )\n", operador1);
+	printf("2)Ingresar Precio de vuelos. (Aerolineas = $ %.2f ,Latam = $ %.2f)\n", operador2, operador3);
+	printf("3)Calcular todos los costos.\n");													//menu principal.
 	printf("4)Mostrar resultados.\n");
 	printf("5)Carga forzada de datos.\n");
 	printf("6)Salir.\n\n");

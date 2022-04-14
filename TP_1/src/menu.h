@@ -16,7 +16,7 @@ void resultados(int kilometros, float precioVuelosLatam, float debitoLatam, floa
 				float diferencia);
 float precioUno();
 float precioDos();
-int menuPrincipal();
+int menuPrincipal(int operador1, float operador2, float operador3);
 char preguntaSalirDelMenu();
 
 #endif /* MENU_H_ */

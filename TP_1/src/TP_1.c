@@ -18,7 +18,7 @@
 int main(){
 	setbuf(stdout, NULL);
 
-	int kilometros;
+	int kilometros =0;
 	int banderaKilometros = 0;
 	int banderaPrecios = 0;
 	int banderaCalculos = 0;
@@ -40,7 +40,7 @@ int main(){
 
 	do{
 		system("cls");
-		switch(menuPrincipal())  //menu principal
+		switch(menuPrincipal(kilometros, precioVuelosAerolineas, precioVuelosLatam))  //menu principal
 		{
 		case 1:
 
@@ -127,7 +127,12 @@ int main(){
 						precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero,
 						diferencia);
 
+			printf("Los datos seran reiniciados para poder ingresar datos nuevos!!!\n");
 			system("pause");
+
+			kilometros = 0;
+			precioVuelosAerolineas = 0;						//Resetear Variables
+			precioVuelosLatam = 0;
 		break;
 		case 6:
 			respuesta=preguntaSalirDelMenu();						//PREGUNTAR PARA SALIR O NO DEL MENU.
