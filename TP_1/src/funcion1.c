@@ -41,7 +41,7 @@ float precioTarjetaCredito(float operador1){
 float precioBitCoin(float operador1){
 
 	float resultado;
-	float bitCoin = 4606954.55;
+	float bitCoin = 4657465.06;							//4657465.06 valor de bitcoin buscado el 13/04/22 a las 10:16pm
 
 	resultado= operador1 / bitCoin;						//funcion para BitCoin.
 
@@ -53,9 +53,7 @@ float precioUnitario(float operador1, int operador2){
 
 	float resultado;
 
-
 	resultado= operador1 / operador2;					//Funcion precio unitario
-
 
 	return resultado;
 }

@@ -22,7 +22,6 @@ int main(){
 	int banderaKilometros = 0;
 	int banderaPrecios = 0;
 	int banderaCalculos = 0;
-	char ingresarPrecio;
 	char respuesta ='n';
 	float precioVuelosLatam = 0;
 	float precioVuelosAerolineas = 0;                        //Variables usadas
@@ -43,7 +42,7 @@ int main(){
 		{
 		case 1:
 
-			kilometros=ingresarKilometros();					//Pedior que ingrese los kilometros
+			kilometros=ingresarKilometros();					//Pedir que ingrese los kilometros
 
 			banderaKilometros = 1;
 			system("pause");
@@ -51,22 +50,9 @@ int main(){
 		case 2:
 			if(banderaKilometros == 1)
 			{
-				ingresarPrecio=seleccionarAerolineaa(ingresarPrecio);
+				precioVuelosAerolineas=precioUno(precioVuelosAerolineas);		//pedir que ingrese ambos precios.
+				precioVuelosLatam=precioDos(precioVuelosLatam);
 				banderaPrecios = 1;
-
-				switch(ingresarPrecio)
-				{
-				case 'a':
-					precioVuelosAerolineas=precioUno(precioVuelosAerolineas);		//Elegir compania y escribir el precio del vuelo
-				break;																//SI SE PONE UN NUMERO O OTRA LETRA QUE NO ESTA
-				case 'b':															//EN EL SWICH SE REPRODUCE MENSAJE  DE ERROR Y
-					precioVuelosLatam=precioDos(precioVuelosLatam);                 //REGRESA AL MENU.
-				break;
-				default:
-					printf("Operacion invalida!!!\n\n");
-					system("pause");
-				break;
-				}
 			}
 			else
 			{
@@ -103,13 +89,10 @@ int main(){
 			if(banderaPrecios ==1 && banderaKilometros == 1 && banderaCalculos == 1)	//MOSTAR RESULTADOS
 			{
 				printf("Estos son los resultados:\n\n");
-																				//Se tienen que ingresar ambos precios para mostrar
-				printf("Kilometros Ingresados: %d  KM\n\n", kilometros);		//la diferencia , sino no hara falta mostrarla.
 
-				resultadosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
-				resultadosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);
-
-				mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
+				resultados(kilometros, precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam,
+							precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero,
+							diferencia);
 			}
 			else
 			{
@@ -138,11 +121,9 @@ int main(){
 			printf("La carga forzada de datos fue realizada con exito!!!\n\n");
 			printf("Estos son los resultados:\n\n");
 
-			printf("Kilometros Ingresados: %d  KM\n\n", kilometros);
-
-			resultadosLatam(precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam);
-			resultadosAerolineas(precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero);
-			mensajeDifPrecios(precioVuelosLatam, precioVuelosAerolineas, diferencia);
+			resultados(kilometros, precioVuelosLatam, debitoLatam, creditoLatam, bitCoinLatam, unitarioLatam,
+						precioVuelosAerolineas, debitoAero, creditoAero, bitCoinAero, unitarioAero,
+						diferencia);
 
 			system("pause");
 		break;

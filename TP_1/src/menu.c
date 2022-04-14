@@ -27,59 +27,26 @@ int ingresarKilometros(){
 	return kilometros;
 }
 
-void resultadosLatam(float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam){
+void resultados(int kilometros, float precioVuelosLatam, float debitoLatam, float creditoLatam, float bitCoinLatam, float unitarioLatam,
+				float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero,
+				float diferencia){
 
-	if(precioVuelosLatam > 0)
-	{
-		printf("Latam :$ %.2f\n", precioVuelosLatam);
-		printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoLatam);
-		printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoLatam);				//Menu resultados Latam
-		printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinLatam);
-		printf("D)Precio Unitario: $ %.2f\n", unitarioLatam);
-	}
+	printf("Kilometros Ingresados: %d  KM\n\n", kilometros);						//kilometros ingresados
 
+	printf("Latam :$ %.2f\n", precioVuelosLatam);
+	printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoLatam);
+	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoLatam);				//Resultados Latam
+	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinLatam);
+	printf("D)Precio Unitario: $ %.2f\n\n", unitarioLatam);
 
-}
+	printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
+	printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoAero);
+	printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoAero);				//Resultados aerolineas
+	printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinAero);
+	printf("D)Precio Unitario: $ %.2f\n\n", unitarioAero);
 
-void resultadosAerolineas(float precioVuelosAerolineas, float debitoAero, float creditoAero, float bitCoinAero, float unitarioAero){
+	printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);				//Diferencia de precios
 
-	if(precioVuelosAerolineas > 0)
-	{
-		printf("Aerolineas :$ %.2f\n", precioVuelosAerolineas);
-		printf("A)Precio con tarjeta de debito: $  %.2f\n", debitoAero);
-		printf("B)Precio con tarjeta de credito: $  %.2f\n", creditoAero);				//menu resultados aerolineas
-		printf("C)Precio pagando con BitCoin: %.5f    BTC\n", bitCoinAero);
-		printf("D)Precio Unitario: $ %.2f\n", unitarioAero);
-	}
-
-
-}
-
-void mensajeDifPrecios(float precioVuelosLatam , float precioVuelosAerolineas , float diferencia){
-
-	if(precioVuelosLatam > 0 && precioVuelosAerolineas > 0)
-	{
-		printf("La diferencia de precio es de : $ %.2f\n\n", diferencia);				//Mnesaje de precios
-	}
-	else
-	{
-		printf("Solo se ingreso un precio por lo cual no se calculara la diferencia!!!\n\n");
-	}
-
-}
-
-char seleccionarAerolineaa(char ingresarPrecio){
-
-	printf("Eliga que empresa de vuelo quiere.\n");
-	printf("A)Aerolineas.\n");
-	printf("B)Latam.\n\n");
-
-	printf("Elija una opcion : ");						//seleccionar aerolinea
-	fflush(stdin);
-	scanf("%c", &ingresarPrecio);
-	ingresarPrecio = tolower(ingresarPrecio);
-
-	return ingresarPrecio;
 }
 
 float precioUno(float precioVuelosAerolineas){
@@ -99,6 +66,7 @@ float precioUno(float precioVuelosAerolineas){
 float precioDos(float precioVuelosLatam){
 
 	printf("Ingrese El precio de Latam : ");
+	fflush(stdin);
 	scanf("%f", &precioVuelosLatam);
 	while(precioVuelosLatam < 0)
 	{
