@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : TP_1
- Author      : Rodrigo Parodi Div 1G
+ Author      : Rodrigo Parodi Div 1G  DNI:43 311 462
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
