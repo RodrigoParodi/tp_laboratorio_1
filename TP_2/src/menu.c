@@ -60,7 +60,7 @@ void mostrarPasajeros(Passenger Pass, Sector tipos[], Estados est[], int tam){
 	char estadoDeVuelo[20];
 
 	cargarDescripcionSector(tipos, tam, Pass.typePassenger, tipo);
-	cargarDescripcionEstado(est, tam, tipos->statusFlight, estadoDeVuelo);
+	cargarDescripcionEstado(est, tam, Pass.statusFlight, estadoDeVuelo);
 
 	printf("     %d    %s %s     %.2f     %s     %10s     %10s\n",
 			Pass.id,
@@ -120,11 +120,20 @@ int listarPasajeros(Passenger vec[], int tam, Sector tipos[], int tamSec, Estado
     return todoOk;
 }
 
-void mostrarPasajero(Passenger pass){
+void mostrarPasajero(Passenger pass, Sector tipos[], Sector est[], int tam){
+
+	char tiposPasajeros[20];
+	char tiposEstados[20];
+
+	cargarDescripcionSector(tipos, tam, pass.typePassenger, tiposPasajeros);
+	cargarDescripcionEstado(est, tam, pass.statusFlight, tiposEstados);
 
     printf("ID: %d\n", pass.id);
     printf("Nombre y apellido: %s %s\n", pass.name, pass.lastName);
     printf("Precio: %.2f\n", pass.price);
+    printf("Codigo de vuelo: %s\n", pass.flycode);
+    printf("Tipo de pasajero: %10s\n", pass.typePassenger);
+    printf("Estado de vuelo: %10s\n", pass.statusFlight);
 }
 
 int menuModificarPasajero(){
@@ -167,7 +176,7 @@ int modificarPasajero(Passenger vec[], int tam){
             else
             {
 
-            	mostrarPasajero(vec[indice]);
+            	//mostrarPasajero(vec[indice]);
 
                 switch(menuModificarPasajero())
                 {

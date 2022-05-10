@@ -18,6 +18,7 @@ typedef struct {
 	float price;
 	char flycode[10];
 	int typePassenger;
+	int statusFlight;
 	int isEmpty;
 
 } Passenger;

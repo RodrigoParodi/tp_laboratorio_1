@@ -125,9 +125,10 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 		        	scanf("%d", &estadoVuelo);
 	        	}
 
-	        	tipos->statusFlight = estadoVuelo;
+	        	nuevoPasajero.statusFlight = estadoVuelo;
 
 	        	nuevoPasajero.isEmpty = 0;
+
 
 	            vec[indice] = nuevoPasajero;
 

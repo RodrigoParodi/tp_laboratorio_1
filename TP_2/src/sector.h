@@ -12,7 +12,6 @@ typedef struct{
 
 	int id;
 	char tipoPasajero[20];
-	int statusFlight;
 
 } Sector;
 
