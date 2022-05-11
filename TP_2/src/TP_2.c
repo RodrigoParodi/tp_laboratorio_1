@@ -16,7 +16,7 @@
 #include "sectorDos.h"
 
 
-#define TAM 10
+#define TAM 20
 #define TAMS 4
 #define TAMSS 3
 
@@ -26,6 +26,7 @@ int main() {
 
 	char respuesta = 'n';
 	int proximoId=1000;
+	int banderaListado;
 
 	Passenger lista[TAM];
 	Sector tiposDePasajeros[TAMS] =
@@ -68,9 +69,31 @@ int main() {
 			removePassenger(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
 		break;
 		case 4:
-			listarPasajeros(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
+			banderaListado=printPassengers(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
+			switch(menuInformes(banderaListado))
+			{
+			case 0:
+				printf("No se pueden realizar informes sin pasajeros registrados!!!\n");
+			break;
+			case 1:
+				sortPassengers(lista, TAM);
+				printPassengers(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
+			break;
+			case 2:
+			break;
+			case 3:
+				sortPassengersByCode(lista, TAM);
+				printPassengers(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
+			break;
+			default:
+				printf("Opcion invalida!!!");
+			break;
+			}
 		break;
 		case 5:
+			hardcodearPasajeros(lista, TAM, 5, &proximoId);
+		break;
+		case 6:
 			respuesta=preguntaSalirDelMenu();
 		break;
 		default:

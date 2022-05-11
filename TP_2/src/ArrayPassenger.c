@@ -173,7 +173,7 @@ int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados
 	    char confirma;
 	    if( vec != NULL && tam > 0 )
 	    {
-	    	if(listarPasajeros(vec, tam, tipo, tamSec, est, tamSecDos) == 0)
+	    	if(printPassengers(vec, tam, tipo, tamSec, est, tamSecDos) == 0)
 	    	{
 
 	    		printf("Ingrese id: ");
@@ -212,13 +212,84 @@ int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados
 
 	    }
 	    return todoOk;
-
-
-
-
-
-
-
 }
 
+int printPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos){
+    int bandera = 0;
+    int flag = 1;
+    if( vec != NULL && tam > 0)
+    {
+        system("cls");
+        printf("       *** Listado de Pasajeros ***\n");
+        printf("  id          Nombre y Apellido         Precio      Codigo de vuelo    Tipo Pasajero     Estado de vuelo\n");
+        printf("______________________________________________________________________________________________________________\n");
+        for(int i=0; i < tam; i++)
+        {
+            if( !vec[i].isEmpty)
+            {
+            	mostrarPasajeros(vec[i], tipos, est, tamSec);
+                flag = 0;
+            }
+        }
+        printf("______________________________________________________________________________________________________________\n\n");
+        if(flag)
+        {
+            printf("  No hay pasajeros cargados en el sistema!!!\n\n");
+            bandera = 1;
+        }
+
+
+    }
+    return bandera;
+}
+
+int sortPassengers(Passenger vec[], int tam){
+
+    int todoOk = 0;
+    Passenger auxPasajero;
+
+    if( vec != NULL && tam > 0)
+    {
+        for(int i=0; i < tam - 1; i++)
+        {
+            for(int j= i+1; j < tam; j++)
+            {
+                if( strcmp(vec[i].lastName, vec[j].lastName) > 0)
+                {
+                	auxPasajero = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = auxPasajero;
+                }
+            }
+        }
+        todoOk = 1;
+    }
+    return todoOk;
+}
+
+int sortPassengersByCode(Passenger vec[], int tam){
+
+    int todoOk = 0;
+    Passenger auxPasajero;
+
+    if( vec != NULL && tam > 0)
+    {
+        for(int i=0; i < tam - 1; i++)
+        {
+            for(int j= i+1; j < tam; j++)
+            {
+
+                if(vec[i].flycode > vec[j].flycode)
+                {
+                	auxPasajero = vec[i];
+                    vec[i] = vec[j];
+                    vec[j] = auxPasajero;
+                }
+            }
+        }
+
+        todoOk = 1;
+    }
+    return todoOk;
+}
 

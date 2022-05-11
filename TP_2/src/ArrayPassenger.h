@@ -29,3 +29,6 @@ int initPassengers(Passenger vec[], int tam);
 int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos, int* pNextId);
 int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados est[], int tamSecDos);
 int findPassengerById(Passenger vec[], int tam, int id, int* pIndex);
+int printPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos);
+int sortPassengers(Passenger vec[], int tam);
+int sortPassengersByCode(Passenger vec[], int tam);

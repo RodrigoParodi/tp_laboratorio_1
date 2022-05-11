@@ -64,7 +64,8 @@ int menuPrincipal(){
 	printf("2)MODIFICAR.\n");
 	printf("3)BAJA.\n");													//menu principal.
 	printf("4)INFORMAR.\n");
-	printf("5)Salir.\n\n");
+	printf("5)Carga Forzada de pasajeros.\n");
+	printf("6)Salir.\n\n");
 
 	printf("Eliga que opcion desea iniciar : ");
 	fflush(stdin);
@@ -84,8 +85,8 @@ void mostrarPasajeros(Passenger Pass, Sector tipos[], Estados est[], int tam){
 
 	printf("| %-6d|    %-10s %-10s|     $%-10.2f|     %-10s|     %-15s|     %-10s|           \n",
 			Pass.id,
-			Pass.name,
 			Pass.lastName,
+			Pass.name,
 			Pass.price,
 			Pass.flycode,
 			tipo,
@@ -113,33 +114,6 @@ int buscarLibre(Passenger vec[], int tam, int* pIndex)
     return todoOk;
 }
 
-int listarPasajeros(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos){
-    int bandera = 0;
-    int flag = 1;
-    if( vec != NULL && tam > 0)
-    {
-        system("cls");
-        printf("       *** Listado de Pasajeros ***\n");
-        printf("  id          Nombre y Apellido         Precio      Codigo de vuelo    Tipo Pasajero     Estado de vuelo\n");
-        printf("-------------------------------------------------------------------------------------------------------------\n");
-        for(int i=0; i < tam; i++)
-        {
-            if( !vec[i].isEmpty)
-            {
-            	mostrarPasajeros(vec[i], tipos, est, tamSec);
-                flag = 0;
-            }
-        }
-        if(flag)
-        {
-            printf("  No hay pasajeros cargados en el sistema!!!\n");
-            bandera = 1;
-        }
-
-
-    }
-    return bandera;
-}
 
 void mostrarPasajero(Passenger pass, Sector tipos[], Estados est[], int tam){
 
@@ -190,7 +164,7 @@ int modificarPasajero(Passenger vec[], int tam, Sector tipo[], int tamSec, Estad
     if( vec != NULL && tam > 0 )
     {
 
-    	if(listarPasajeros(vec, tam, tipo, tamSec, est, tamSecDos) == 0)
+    	if(printPassengers(vec, tam, tipo, tamSec, est, tamSecDos) == 0)
     	{
     		        printf("Ingrese id: ");
     		        scanf("%d", &id);
@@ -292,6 +266,51 @@ int modificarPasajero(Passenger vec[], int tam, Sector tipo[], int tamSec, Estad
     }
     return todoOk;
 
+}
+
+int hardcodearPasajeros(Passenger vec[], int tam, int cant, int* pNextId){
+
+    int todoOk = 0;
+    Passenger pasajeros[5] =
+    {
+        {0, "Pedro", "Rodriguez", 35000, "AR 4512", 1, 3},
+        {0, "Miguel", "Angel", 24000, "AR 4200", 2, 3},
+        {0, "Juan", "Fernandez", 21500, "AR 3340", 4, 1},
+        {0, "Nicolas", "Gutierrez", 45700, "AR 3230", 3, 2},
+        {0, "Martina", "Lopez", 29500, "AR 2110", 2, 3},
+    };
+
+    if( vec != NULL && pNextId != NULL && tam > 0 && tam <= 20 && cant <= tam)
+    {
+        for(int i=0; i < cant; i++)
+        {
+            vec[i] = pasajeros[i];
+            vec[i].id = *pNextId;
+            (*pNextId)++;
+        }
+        printf("Pasajeros cargados con exito!!!!\n");
+        todoOk = 1;
+    }
+    return todoOk;
+
+}
+
+int menuInformes(int banderaListado){
+	int opcion;
+
+	if(banderaListado == 0)
+	{
+		printf("-----Menu de informes------\n\n");
+		printf("1)Mostrar Pasajeros ordenados alfabeticamente.\n");
+		printf("2)Total y promedio de los precios.\n");
+		printf("3)Listado de pasajeros por codigo de vuelo y estado de vuelo Activo.\n\n");
+
+		printf("Ingrese opcion: ");
+		scanf("%d", &opcion);
+	}else{
+		opcion = 0;
+	}
+	return opcion;
 }
 
 
