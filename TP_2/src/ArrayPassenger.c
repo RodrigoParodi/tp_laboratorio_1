@@ -98,6 +98,7 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 	        		gets(auxCad);
 	        	}
 
+	        	strupr(auxCad);
 	        	strcpy(nuevoPasajero.flycode, auxCad);
 
 
@@ -164,7 +165,7 @@ int findPassengerById(Passenger vec[], int tam, int id, int* pIndex){
 
 
 
-int removePassenger(Passenger vec[], int tam){
+int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados est[], int tamSecDos){
 
 	   	int todoOk = 0;
 	    int indice;
@@ -172,38 +173,43 @@ int removePassenger(Passenger vec[], int tam){
 	    char confirma;
 	    if( vec != NULL && tam > 0 )
 	    {
-	    	//listarPasajeros(vec, tam);
-	        printf("Ingrese id: ");
-	        scanf("%d", &id);
+	    	if(listarPasajeros(vec, tam, tipo, tamSec, est, tamSecDos) == 0)
+	    	{
 
-	        if( findPassengerById(vec, tam, id, &indice))
-	        {
-	            if(indice == -1)
-	            {
-	                printf("No existe un pasajero con id: %d en el sistema\n", id);
-	            }
-	            else
-	            {
+	    		printf("Ingrese id: ");
+	    		scanf("%d", &id);
 
-	            	mostrarPasajero(vec[indice]);
-	                printf("Confirma baja?: ");
-	                fflush(stdin);
-	                scanf("%c", &confirma);
+	    		if( findPassengerById(vec, tam, id, &indice))
+	    			{
+	    			       if(indice == -1)
+	    			         {
+	    			             printf("No existe un pasajero con id: %d en el sistema\n", id);
+	    			         }
+	    			         else
+	    			           {
 
-	                if(confirma == 's' || confirma == 'S')
-	                {
-	                    vec[indice].isEmpty = 1;
-	                    printf("Baja exitosa!!!\n");
-	                }
-	                else
-	                {
-	                    printf("Baja cancelada por el usuario\n");
-	                }
+	    			        	 mostrarPasajero(vec[indice], tipo, est, tam);
+	    			             printf("Confirma baja?: ");
+	    			             fflush(stdin);
+	    			             scanf("%c", &confirma);
 
-	            }
+	    			              if(confirma == 's' || confirma == 'S')
+	    			               {
+	    			                   vec[indice].isEmpty = 1;
+	    			                   printf("Baja exitosa!!!\n");
+	    			               }
+	    			               else
+	    			               {
+	    			                   printf("Baja cancelada por el usuario\n");
+	    			               }
 
-	            todoOk = 1;
-	        }
+	    			            }
+
+	    			   todoOk = 1;
+	    			 }
+
+	    	}
+
 	    }
 	    return todoOk;
 

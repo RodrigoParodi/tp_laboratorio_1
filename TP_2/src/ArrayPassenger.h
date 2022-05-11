@@ -27,5 +27,5 @@ typedef struct {
 
 int initPassengers(Passenger vec[], int tam);
 int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos, int* pNextId);
-int removePassenger(Passenger vec[], int tam);
+int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados est[], int tamSecDos);
 int findPassengerById(Passenger vec[], int tam, int id, int* pIndex);

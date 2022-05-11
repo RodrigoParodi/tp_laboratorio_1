@@ -62,10 +62,10 @@ int main() {
 	            }
 		break;
 		case 2:
-			//modificarPasajero(lista, TAM);
+			modificarPasajero(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
 		break;
 		case 3:
-			//removePassenger(lista, TAM);
+			removePassenger(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
 		break;
 		case 4:
 			listarPasajeros(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
