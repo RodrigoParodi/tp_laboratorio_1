@@ -313,5 +313,37 @@ int menuInformes(int banderaListado){
 	return opcion;
 }
 
+int promedioSueldos(Passenger vec[], int tam)
+{
+    int todoOk = 0;
+    float acumPrecio = 0;
+    int contPasajeros = 0;
+    float promedio = 0;
+    if( vec != NULL && tam > 0)
+    {
+        for(int i=0; i < tam; i++)
+        {
+            if( !vec[i].isEmpty)
+            {
+            	acumPrecio += vec[i].price;
+            	contPasajeros++;
+            }
+        }
+        if(contPasajeros != 0)
+        {
+            promedio = acumPrecio / contPasajeros;
+        }
+
+        system("cls");
+        printf("     *** Total y promedio de los precios ***\n\n");
+
+        printf("Total: $ %.2f\n", acumPrecio);
+        printf("Promedio: $ %.2f\n\n", promedio);
+        todoOk = 1;
+
+    }
+    return todoOk;
+}
+
 
 

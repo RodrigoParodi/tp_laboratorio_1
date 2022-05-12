@@ -20,6 +20,7 @@ int modificarPasajero(Passenger vec[], int tam, Sector tipo[], int tamSec, Estad
 int menuModificarPasajero();
 int hardcodearPasajeros(Passenger vec[], int tam, int cant, int* pNextId);
 int menuInformes(int banderaListado);
+int promedioSueldos(Passenger vec[], int tam);
 
 
 #endif /* MENU_H_ */

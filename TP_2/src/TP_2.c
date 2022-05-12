@@ -80,6 +80,7 @@ int main() {
 				printPassengers(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
 			break;
 			case 2:
+				promedioSueldos(lista,  TAM);
 			break;
 			case 3:
 				sortPassengersByCode(lista, TAM);
