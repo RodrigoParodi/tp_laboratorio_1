@@ -301,8 +301,8 @@ int menuInformes(int banderaListado){
 	if(banderaListado == 0)
 	{
 		printf("-----Menu de informes------\n\n");
-		printf("1)Mostrar Pasajeros ordenados alfabeticamente.\n");
-		printf("2)Total y promedio de los precios.\n");
+		printf("1)Mostrar Pasajeros ordenados alfabeticamente y por tipo de pasajero.\n");
+		printf("2)Total y promedio de los precios y muestra pasajeros que lo superaron.\n");
 		printf("3)Listado de pasajeros por codigo de vuelo y estado de vuelo Activo.\n\n");
 
 		printf("Ingrese opcion: ");

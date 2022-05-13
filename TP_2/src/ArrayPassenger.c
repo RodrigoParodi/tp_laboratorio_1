@@ -254,9 +254,11 @@ int sortPassengers(Passenger vec[], int tam){
         {
             for(int j= i+1; j < tam; j++)
             {
-                if( strcmp(vec[i].lastName, vec[j].lastName) > 0)
+                if((vec[i].typePassenger == vec[j].typePassenger && strcmp(vec[i].lastName,vec[j].lastName) > 0)
+                        ||(vec[i].typePassenger != vec[j].typePassenger && (vec[i].typePassenger > vec[j].typePassenger)))
                 {
                 	auxPasajero = vec[i];
+
                     vec[i] = vec[j];
                     vec[j] = auxPasajero;
                 }
@@ -279,7 +281,8 @@ int sortPassengersByCode(Passenger vec[], int tam){
             for(int j= i+1; j < tam; j++)
             {
 
-                if(vec[i].flycode > vec[j].flycode)
+                if((vec[i].statusFlight == vec[j].statusFlight && (vec[i].flycode > vec[j].flycode))
+                        ||(vec[i].statusFlight != vec[j].statusFlight && (vec[i].statusFlight > vec[j].statusFlight)))
                 {
                 	auxPasajero = vec[i];
                     vec[i] = vec[j];
