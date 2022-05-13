@@ -341,6 +341,17 @@ int promedioSueldos(Passenger vec[], int tam)
         printf("Promedio: $ %.2f\n\n", promedio);
         todoOk = 1;
 
+        printf("------Pasajeros que superaro el precio promedio-----\n");
+
+        for(int i=0; i < tam; i++)
+        {
+            if( !vec[i].isEmpty && vec[i].price > promedio)
+            {
+                printf(" %s %s \n", vec[i].name, vec[i].lastName);
+            }
+        }
+        printf("\n\n");
+
     }
     return todoOk;
 }
