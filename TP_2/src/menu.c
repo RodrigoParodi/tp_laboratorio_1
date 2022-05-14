@@ -58,6 +58,7 @@ int menuPrincipal(){
 	int opciones;
 
 	system("pause");
+	system("cls");
 
 	printf("\n\n MENU DE OPCIONES.\n\n");
 	printf("1)ALTAS.\n");
@@ -128,7 +129,7 @@ void mostrarPasajero(Passenger pass, Sector tipos[], Estados est[], int tam){
     printf("Precio: %.2f\n", pass.price);
     printf("Codigo de vuelo: %s\n", pass.flycode);
     printf("Tipo de pasajero: %10s\n", tiposPasajeros);
-    printf("Estado de vuelo: %10s\n", tiposEstados);
+    printf("Estado de vuelo: %10s\n\n", tiposEstados);
 }
 
 int menuModificarPasajero(){
@@ -154,6 +155,7 @@ int modificarPasajero(Passenger vec[], int tam, Sector tipo[], int tamSec, Estad
     int todoOk = 0;
     int indice;
     int id;
+    int cant;
     float precio;
     int idPasajero;
     int estadoVuelo;
@@ -179,82 +181,118 @@ int modificarPasajero(Passenger vec[], int tam, Sector tipo[], int tamSec, Estad
     		            }
     		            else
     		            {
-
+    		            	system("cls");
     		            	mostrarPasajero(vec[indice], tipo, est, tam);
+    		            	printf("Estos son los datos que desea modificar ?: ");
+    		            	fflush(stdin);
+    		            	scanf("%c", &respuesta);
 
-    		            	do{
+    		            	if(respuesta == 's' || respuesta == 'S')
+    		            	{
+    	   		            	do{
 
-    		                    switch(menuModificarPasajero())
-    		                    {
+    	    		                    switch(menuModificarPasajero())
+    	    		                    {
 
-    		                    case 1:
-    		                        printf("Ingrese nuevo nombre: ");
-    		                        fflush(stdin);
-    		                        gets(auxCad);
-    		                        strcpy(vec[indice].name, auxCad);
-    		                        printf("Nombre modificado!\n\n");
-    		                        break;
-    		                    case 2:
-    		                        printf("Ingrese nuevo Apellido: ");
-    		                        fflush(stdin);
-    		                        gets(auxCad);
-    		                        strcpy(vec[indice].lastName, auxCad);
-    		                        printf("Apellido modificado!\n\n");
-    		                        break;
-    		                    case 3:
-    		                        printf("Ingrese nueva Precio: ");
-    		                        scanf("%f", &precio);
-    		                        vec[indice].price = precio;
-    		                        printf("Precio modificada!\n\n");
-    		                        break;
-    		                    case 4:
-    		        	        	printf("Ingrese codigo de vuelo : ");
-    		        	        	fflush(stdin);
-    		        	        	gets(auxCad);
+    	    		                    case 1:
+    	    		                        printf("Ingrese nuevo nombre: ");
+    	    		                        fflush(stdin);
+    	    		                        gets(auxCad);
 
-    		        	        	while(strlen(auxCad) >= 20)
-    		        	        	{
-    		        	        		printf("Codigo demasiado largo. Reingrese nombre: ");
-    		        	        		fflush(stdin);
-    		        	        		gets(auxCad);
-    		        	        	}
+    	    		        	        	while(strlen(auxCad) >= 20)
+    	    		        	        	{
+    	    		        	        		printf("Nombre demasiado largo. Reingrese nombre: ");
+    	    		        	        		fflush(stdin);
+    	    		        	        		gets(auxCad);
+    	    		        	        	}
 
-    		        	        	strcpy(vec[indice].flycode, auxCad);
-    		        	        	printf("Codigo de vuelo modificada!\n\n");
-    		                    	break;
-    		                    case 5:
-    		        	        	listarTiposDePasajeros(tipo, tamSec);
+    	    		                        strcpy(vec[indice].name, auxCad);
+    	    		                        printf("Nombre modificado!\n\n");
+    	    		                        break;
+    	    		                    case 2:
+    	    		                        printf("Ingrese nuevo Apellido: ");
+    	    		                        fflush(stdin);
+    	    		                        gets(auxCad);
 
-    		        	        	printf("Ingrese Tipo de pasajero: ");
-    		        	        	scanf("%d", &idPasajero);
+    	    		        	        	while(strlen(auxCad) >= 20)
+    	    		        	        	{
+    	    		        	        		printf("Apellido demasiado largo. Reingrese nombre: ");
+    	    		        	        		fflush(stdin);
+    	    		        	        		gets(auxCad);
+    	    		        	        	}
 
-    		        	        	while(idPasajero <= 0 || idPasajero > tamSec)
-    		        	        	{
-    		        		        	printf("Ese ID no existe!!, ingrese Tipo de pasajero: ");
-    		        		        	scanf("%d", &idPasajero);
-    		        	        	}
+    	    		                        strcpy(vec[indice].lastName, auxCad);
+    	    		                        printf("Apellido modificado!\n\n");
+    	    		                        break;
+    	    		                    case 3:
+    	    		                        printf("Ingrese nueva Precio: ");
+    	    		                        cant = scanf("%f", &precio);
 
-    		        	        	vec[indice].typePassenger = idPasajero;
-    		        	        	printf("Tipo de pasajero modificada!\n\n");
-    		                    	break;
-    		                    case 6:
-    		        	        	listarTiposDeEstados(est, tamSecDos);
+    	    		        	        	while(precio < 0 || cant == 0)
+    	    		        	        	{
+    	    		        		        	printf("Precio invalido !!. Reingrese precio: ");
+    	    		        		        	fflush(stdin);
+    	    		        		        	cant = scanf("%f", &precio);
+    	    		        	        	}
 
-    		        	        	printf("Ingrese estado del vuelo: ");
-    		        	        	scanf("%d", &estadoVuelo);
+    	    		                        vec[indice].price = precio;
+    	    		                        printf("Precio modificada!\n\n");
+    	    		                        break;
+    	    		                    case 4:
+    	    		        	        	printf("Ingrese codigo de vuelo : ");
+    	    		        	        	fflush(stdin);
+    	    		        	        	gets(auxCad);
 
-    		        	        	while(estadoVuelo <= 0 || estadoVuelo > tamSecDos)
-    		        	        	{
-    		        		        	printf("Este Estado no exsite, ReIngrese estado del vuelo: ");
-    		        		        	scanf("%d", &estadoVuelo);
-    		        	        	}
+    	    		        	        	while(strlen(auxCad) >= 20)
+    	    		        	        	{
+    	    		        	        		printf("Codigo demasiado largo. Reingrese nombre: ");
+    	    		        	        		fflush(stdin);
+    	    		        	        		gets(auxCad);
+    	    		        	        	}
 
-    		        	        	vec[indice].statusFlight = estadoVuelo;
-    		        	        	printf("Estado de vuelo modificada!\n\n");
-    		                    	break;
-    		                    }
-    		                    respuesta=preguntaSalirDelMenuModificar();
-    		            	}while(respuesta != 'n');
+    	    		        	        	strcpy(vec[indice].flycode, auxCad);
+    	    		        	        	printf("Codigo de vuelo modificada!\n\n");
+    	    		                    	break;
+    	    		                    case 5:
+    	    		        	        	listarTiposDePasajeros(tipo, tamSec);
+
+    	    		        	        	printf("Ingrese Tipo de pasajero: ");
+    	    		        	        	scanf("%d", &idPasajero);
+
+    	    		        	        	while(idPasajero <= 0 || idPasajero > tamSec)
+    	    		        	        	{
+    	    		        		        	printf("Ese ID no existe!!, ingrese Tipo de pasajero: ");
+    	    		        		        	scanf("%d", &idPasajero);
+    	    		        	        	}
+
+    	    		        	        	vec[indice].typePassenger = idPasajero;
+    	    		        	        	printf("Tipo de pasajero modificada!\n\n");
+    	    		                    	break;
+    	    		                    case 6:
+    	    		        	        	listarTiposDeEstados(est, tamSecDos);
+
+    	    		        	        	printf("Ingrese estado del vuelo: ");
+    	    		        	        	scanf("%d", &estadoVuelo);
+
+    	    		        	        	while(estadoVuelo <= 0 || estadoVuelo > tamSecDos)
+    	    		        	        	{
+    	    		        		        	printf("Este Estado no exsite, ReIngrese estado del vuelo: ");
+    	    		        		        	scanf("%d", &estadoVuelo);
+    	    		        	        	}
+
+    	    		        	        	vec[indice].statusFlight = estadoVuelo;
+    	    		        	        	printf("Estado de vuelo modificada!\n\n");
+    	    		                    	break;
+    	    		                    }
+    	    		                    respuesta=preguntaSalirDelMenuModificar();
+    	    		                    system("cls");
+    	    		            	}while(respuesta != 'n');
+
+    		            	}else{
+    		            		printf("Modificacion cancelada por el usuario!!!!\n\n");
+    		            	}
+
+
     		            }
 
     		            todoOk = 1;
@@ -303,7 +341,8 @@ int menuInformes(int banderaListado){
 		printf("-----Menu de informes------\n\n");
 		printf("1)Mostrar Pasajeros ordenados alfabeticamente y por tipo de pasajero.\n");
 		printf("2)Total y promedio de los precios y muestra pasajeros que lo superaron.\n");
-		printf("3)Listado de pasajeros por codigo de vuelo y estado de vuelo Activo.\n\n");
+		printf("3)Listado de pasajeros por codigo de vuelo y estado de vuelo Activo.\n");
+		printf("4)Volver al menu.\n\n");
 
 		printf("Ingrese opcion: ");
 		scanf("%d", &opcion);
@@ -354,6 +393,44 @@ int promedioSueldos(Passenger vec[], int tam)
 
     }
     return todoOk;
+}
+
+int mayusculaPrimerCaracter(char cadena[]){
+	int todoOK = 0;
+	if(cadena !=NULL)
+	{
+		todoOK = 1;
+		strlwr(cadena);
+		cadena[0] = toupper(cadena[0]);
+	}
+
+	return todoOK;
+}
+
+int validarCadena(char cadena[50]){
+
+	int i=0;
+	int sw=0;
+	int j;
+
+	j=strlen(cadena);
+
+	while(i<j && sw==0)
+	{
+		if(isalpha(cadena[i]) != 0)
+		{
+			i++;
+		}
+		else
+		{
+			sw=1;
+		}
+	}
+
+
+
+
+	return sw;
 }
 
 

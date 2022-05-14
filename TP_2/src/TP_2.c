@@ -49,7 +49,6 @@ int main() {
 	printf("Hola bienvenido\n\n");
 
 	do{
-		system("cls");
 		switch(menuPrincipal())
 		{
 		case 1:
@@ -86,8 +85,12 @@ int main() {
 				sortPassengersByCode(lista, TAM);
 				printPassengers(lista, TAM, tiposDePasajeros, TAMS, estado, TAMSS);
 			break;
+			case 4:
+				printf("saliendo de informes!!!\n!!!!");
+			break;
 			default:
 				printf("Opcion invalida!!!");
+				system("pause");
 			break;
 			}
 		break;
@@ -99,11 +102,12 @@ int main() {
 		break;
 		default:
 			printf("Opcionon Invalida!!!!\n");
-			system("pause");							//EN CASO DE USAR UN NUMERO MAYOR DE 5 O LETRA SALDRA ESTE MENSAJE DE ERROR
+			system("pause");
 		break;
 		}
 	}while(respuesta != 's');
 
+	system("cls");
 	printf("Adios!!!");
 
 	return 0;

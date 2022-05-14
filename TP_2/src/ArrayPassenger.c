@@ -29,6 +29,8 @@ int initPassengers(Passenger vec[], int tam)
 int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados est[], int tamSecDos, int* pNextId)
 {
 	int todoOk = 0;
+	int cant;
+	int sw;
 	int indice;
 	int idPasajero;
 	int estadoVuelo;
@@ -55,37 +57,49 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 	        	printf("Ingrese Nombre: ");
 	        	fflush(stdin);
 	        	gets(auxCad);
+	        	sw = validarCadena(auxCad);
 
-	        	while(strlen(auxCad) >= 20)
+	        	while(strlen(auxCad) >= 20 || sw==1)
 	        	{
-	        		printf("Nombre demasiado largo. Reingrese nombre: ");
+	        		printf("Nombre  Invalido!!!!. Reingrese nombre: ");
 	        		fflush(stdin);
 	        		gets(auxCad);
+	        		sw = validarCadena(auxCad);
 	        	}
 
+	        	mayusculaPrimerCaracter(auxCad);
 	        	strcpy(nuevoPasajero.name, auxCad);
+	        	system("cls");
 
 	        	printf("Ingrese Apellido: ");
 	        	fflush(stdin);
 	        	gets(auxCad);
+	        	sw = validarCadena(auxCad);
 
-	        	while(strlen(auxCad) >= 20)
+	        	while(strlen(auxCad) >= 20 || sw ==1)
 	        	{
-	        		printf("Apellido demasiado largo. Reingrese nombre: ");
+	        		printf("Apellido invalido!!!. Reingrese nombre: ");
 	        		fflush(stdin);
 	        		gets(auxCad);
+	        		sw = validarCadena(auxCad);
 	        	}
 
+	        	mayusculaPrimerCaracter(auxCad);
 	        	strcpy(nuevoPasajero.lastName, auxCad);
+	        	system("cls");
 
 	        	printf("Ingrese precio: ");
-	        	scanf("%f", &nuevoPasajero.price);
+	        	fflush(stdin);
+	        	cant = scanf("%f", &nuevoPasajero.price);
 
-	        	while(nuevoPasajero.price < 0)
+	        	while(nuevoPasajero.price < 0 || cant == 0)
 	        	{
 		        	printf("Precio invalido !!. Reingrese precio: ");
-		        	scanf("%f", &nuevoPasajero.price);
+		        	fflush(stdin);
+		        	cant = scanf("%f", &nuevoPasajero.price);
 	        	}
+
+	        	system("cls");
 
 	        	printf("Ingrese codigo de vuelo : ");
 	        	fflush(stdin);
@@ -100,6 +114,7 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 
 	        	strupr(auxCad);
 	        	strcpy(nuevoPasajero.flycode, auxCad);
+	        	system("cls");
 
 
 	        	listarTiposDePasajeros(tipos, tamSec);
@@ -114,6 +129,7 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 	        	}
 
 	        	nuevoPasajero.typePassenger = idPasajero;
+	        	system("cls");
 
 	        	listarTiposDeEstados(est, tamSecDos);
 
@@ -127,6 +143,7 @@ int addPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estados 
 	        	}
 
 	        	nuevoPasajero.statusFlight = estadoVuelo;
+	        	system("cls");
 
 	        	nuevoPasajero.isEmpty = 0;
 
@@ -187,7 +204,7 @@ int removePassenger(Passenger vec[], int tam, Sector tipo[], int tamSec, Estados
 	    			         }
 	    			         else
 	    			           {
-
+	    			        	 system("cls");
 	    			        	 mostrarPasajero(vec[indice], tipo, est, tam);
 	    			             printf("Confirma baja?: ");
 	    			             fflush(stdin);
@@ -221,7 +238,7 @@ int printPassengers(Passenger vec[], int tam, Sector tipos[], int tamSec, Estado
     {
         system("cls");
         printf("       *** Listado de Pasajeros ***\n");
-        printf("  id          Nombre y Apellido         Precio      Codigo de vuelo    Tipo Pasajero     Estado de vuelo\n");
+        printf("  id          Apellido y Nombre         Precio      Codigo de vuelo    Tipo Pasajero     Estado de vuelo\n");
         printf("______________________________________________________________________________________________________________\n");
         for(int i=0; i < tam; i++)
         {

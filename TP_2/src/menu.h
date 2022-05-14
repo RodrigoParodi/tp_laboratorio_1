@@ -76,5 +76,15 @@ int promedioSueldos(Passenger vec[], int tam);
 /// @param int tam
 /// @return todoOK
 
+int mayusculaPrimerCaracter(char cadena[]);
+///Pone las iniciales de los nombres y apellidos en mayusculas
+/// @param char cadena
+/// @return todoOK
+
+int validarCadena(char cadena[50]);
+/// Valida que el usuario no ingrese numeros al momento de perdirle que ingrese nombre o apellido
+/// @param char cadena
+/// @return sw (para saber si escribio solo letras o si escribio algun numero)
+
 
 #endif /* MENU_H_ */
